@@ -28,12 +28,16 @@ console.log(result) // [ 2, 10, 6, 0, -10 ]
 
 // 3. Tweak the debounce method and add third argument (toggle)
 
-// function debounce(func, timeout = 300, toggle) {
-// 	let timer
-// 	return (...args) => {
-// 		clearTimeout(timer)
-// 		timer = setTimeout(() => {
-// 			func.apply(this, args)
-// 		}, timeout)
-// 	}
-// }
+function debounce(func, timeout = 100, toggle = true) {
+	if (toggle === true) {
+		let timer
+		return (...args) => {
+			clearTimeout(timer)
+			timer = setTimeout(() => {
+				func.apply(this, args)
+			}, timeout)
+		}
+	} else {
+		console.log('toggle is false')
+	}
+}
