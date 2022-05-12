@@ -18,7 +18,7 @@ const doubleWeights = weights.map(value => value * 2)
 
 const map = (fn, arr) =>
 	arr.reduce(
-		(accumulutor, currentValue) => accumulutor.concat(fn(currentValue)),
+		(accumulutor, currentValue) => accumulutor.concat(fn(currentValue)), // using concat to return a new array (not 'push')
 		[]
 	)
 
