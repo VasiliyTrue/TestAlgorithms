@@ -1,12 +1,15 @@
 // 1. Implement function strToInt(str: string): number.
-
 const string = '275295'
 const strToInt = string => {
-	const arrString = string.split('')
-	const asciiArr = arrString.map(value => value.charCodeAt())
-	const result = String.fromCharCode(...asciiArr)
-	return result
+	let tmp = 0
+	for (let i = 0; i < string.length; i++) {
+		const char = string[i].charCodeAt() - 48
+		if (0 < char > 9) throw new TypeError(`Value type error: ${string}`)
+		tmp = tmp * 10 + char
+	}
+	return tmp
 }
+
 console.log(strToInt(string)) // 275295
 
 // 2. Implement function Array.map via Array.reduce function.
@@ -23,3 +26,15 @@ const map = (fn, arr) =>
 const result = map(x => x * 2, weights)
 
 console.log(result) // [ 2, 10, 6, 0, -10 ]
+
+// 3. Tweak the debounce method and add third argument (toggle)
+
+// function debounce(func, timeout = 300, toggle) {
+// 	let timer
+// 	return (...args) => {
+// 		clearTimeout(timer)
+// 		timer = setTimeout(() => {
+// 			func.apply(this, args)
+// 		}, timeout)
+// 	}
+// }
