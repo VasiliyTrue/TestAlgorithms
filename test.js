@@ -4,7 +4,6 @@ const strToInt = string => {
 	let tmp = 0
 	for (let i = 0; i < string.length; i++) {
 		const char = string[i].charCodeAt() - 48
-		if (0 < char > 9) throw new TypeError(`Value type error: ${string}`)
 		tmp = tmp * 10 + char
 	}
 	return tmp
